@@ -1,0 +1,12 @@
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.input {
+  width: 90%;
+  margin-right: 20px;
+  font-size: 1.3rem;
+  padding: 0 10px;
+}

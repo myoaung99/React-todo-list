@@ -1,0 +1,15 @@
+.button {
+  font-size: 2rem;
+  width: 60px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+}
+
+.button:hover {
+  transform: scale(0.95);
+}
+
+.button:focus-visible {
+  outline: none;
+}
