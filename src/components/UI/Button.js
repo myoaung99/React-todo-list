@@ -2,8 +2,15 @@ import React from "react";
 import classes from "./Button.module.css";
 
 const Button = (props) => {
+  const clickHandler = (event) => {
+    props.onClick();
+  };
   return (
-    <button style={props.style} className={`${classes.button}`}>
+    <button
+      onClick={clickHandler}
+      style={props.style}
+      className={`${classes.button}`}
+    >
       {props.children}
     </button>
   );

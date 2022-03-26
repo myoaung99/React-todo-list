@@ -1,7 +1,6 @@
 .button {
-  font-size: 2rem;
-  width: 60px;
-  height: 40px;
+  font-size: 1.5rem;
+  padding: 5px 15px;
   border: none;
   border-radius: 5px;
 }
