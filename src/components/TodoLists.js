@@ -1,20 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import classes from "./TodoLists.module.css";
 import Button from "../components/UI/Button";
+import { TodoContext } from "../store/TodoContext";
 
-const TodoLists = (props) => {
-  const clickHandler = (event) => {
-    console.log(props.todo.id);
+const TodoLists = ({ todo }) => {
+  const { removeTodo } = useContext(TodoContext);
+
+  const deleteHandler = () => {
+    removeTodo(todo.id);
   };
   return (
     <div className={classes["li-container"]}>
-      <li>{props.todo.todo}</li>
-      <Button
-        onClick={clickHandler}
-        style={{ backgroundColor: "red", color: "white" }}
-      >
-        x
-      </Button>
+      <li>{todo.todo}</li>
+      <Button onClick={deleteHandler}>x</Button>
     </div>
   );
 };

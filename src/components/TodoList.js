@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import TodoLists from "./TodoLists";
 import classes from "./TodoList.module.css";
-
-const DUMMY_TODO = [
-  { id: 1, todo: "Buy a new laptop" },
-  { id: 2, todo: "Complete a previous task" },
-  { id: 3, todo: "Create a video for YouTube" },
-];
+import { TodoContext } from "../store/TodoContext";
 
 const TodoList = () => {
-  const todoLists = DUMMY_TODO.map((todo) => <TodoLists todo={todo} />);
+  const { todos } = useContext(TodoContext);
+
+  // loop the list from TodoContext
+  const todoLists = todos.map((todo) => (
+    <TodoLists key={todo.id} todo={todo} />
+  ));
+
   return <ul className={classes.ul}>{todoLists}</ul>;
 };
 

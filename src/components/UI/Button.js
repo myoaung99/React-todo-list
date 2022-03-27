@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./Button.module.css";
 
 const Button = (props) => {
-  const clickHandler = (event) => {
+  const clickHandler = () => {
     props.onClick();
   };
   return (

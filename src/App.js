@@ -4,15 +4,18 @@ import TodoList from "./components/TodoList";
 import Card from "./components/UI/Card";
 import Input from "./components/UI/Input";
 import Footer from "./components/Footer";
+import { TodoProvider } from "./store/TodoContext";
 
 function App() {
   return (
-    <Card>
-      <Header />
-      <Input />
-      <TodoList />
-      <Footer />
-    </Card>
+    <TodoProvider>
+      <Card>
+        <Header />
+        <Input />
+        <TodoList />
+        <Footer />
+      </Card>
+    </TodoProvider>
   );
 }
 

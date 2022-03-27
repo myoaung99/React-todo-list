@@ -10,3 +10,21 @@
   font-size: 1.3rem;
   padding: 0 10px;
 }
+
+.button {
+  font-size: 1.5rem;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: purple;
+  color: white;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(0.95);
+}
+
+.button:focus-visible {
+  outline: none;
+}
