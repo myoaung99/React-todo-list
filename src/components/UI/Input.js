@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react";
-import Button from "./Button";
-import classes from "./Input.module.css";
 import { TodoContext } from "../../store/TodoContext";
 
 const Input = (props) => {
+  // controlled form
   const [text, setText] = useState("");
+
+  // func from ctx
   const { addTodo } = useContext(TodoContext);
 
   const submitHandler = (event) => {
@@ -28,15 +29,15 @@ const Input = (props) => {
   };
 
   return (
-    <form onSubmit={submitHandler} className={classes["input-container"]}>
+    <form onSubmit={submitHandler} className={"input-container"}>
       <input
         autoFocus="on"
         onChange={changeHandler}
         value={text}
-        className={classes.input}
+        className={"input"}
         type={props.type || "text"}
       ></input>
-      <button className={classes.button}>+</button>
+      <button className={"button"}>+</button>
     </form>
   );
 };

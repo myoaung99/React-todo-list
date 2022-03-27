@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import classes from "./TodoLists.module.css";
 import Button from "../components/UI/Button";
 import { TodoContext } from "../store/TodoContext";
 
@@ -10,7 +9,7 @@ const TodoLists = ({ todo }) => {
     removeTodo(todo.id);
   };
   return (
-    <div className={classes["li-container"]}>
+    <div className={"li-container"}>
       <li>{todo.todo}</li>
       <Button onClick={deleteHandler}>x</Button>
     </div>

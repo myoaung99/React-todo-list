@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import Button from "./UI/Button";
-import classes from "./Footer.module.css";
 import { TodoContext } from "../store/TodoContext";
 
 const Footer = () => {
@@ -12,9 +11,13 @@ const Footer = () => {
     clearTodo();
   };
   return (
-    <div className={classes["footer-container"]}>
+    <div className={"footer-container"}>
       <p>You have {lengthOfList} pending tasks</p>
-      <Button onClick={clearHandler}>Clear All</Button>
+      {lengthOfList > 0 && (
+        <Button style={{ fontSize: "1.3rem" }} onClick={clearHandler}>
+          Clear All
+        </Button>
+      )}
     </div>
   );
 };
