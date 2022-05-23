@@ -1,16 +1,18 @@
-import React, { useState, useContext } from "react";
-import { TodoContext } from "../../store/TodoContext";
+import React, { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { todoActions } from "../../store/todo-slice";
 
-const Input = (props) => {
+const Input = () => {
   // controlled form
-  const [text, setText] = useState("");
+  const inputTextRef = useRef("");
 
   // func from ctx
-  const { addTodo } = useContext(TodoContext);
+  const dispatch = useDispatch();
 
   const submitHandler = (event) => {
     event.preventDefault();
 
+    const text = inputTextRef.current.value;
     // submit only if there are inputs
     if (text.trim().length > 0) {
       const newTodo = {
@@ -18,14 +20,14 @@ const Input = (props) => {
         todo: text,
       };
 
-      addTodo(newTodo);
-      setText("");
+      dispatch(todoActions.add(newTodo));
+
+      inputTextRef.current.value = "";
     }
   };
 
-  // update state on input
-  const changeHandler = (event) => {
-    setText(event.target.value);
+  const changeHandler = () => {
+    console.log(inputTextRef.current.value);
   };
 
   return (
@@ -33,9 +35,9 @@ const Input = (props) => {
       <input
         autoFocus="on"
         onChange={changeHandler}
-        value={text}
+        ref={inputTextRef}
         className={"input"}
-        type={props.type || "text"}
+        type={"text"}
       ></input>
       <button className={"button"}>+</button>
     </form>

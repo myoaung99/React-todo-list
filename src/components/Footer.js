@@ -1,23 +1,29 @@
 import React, { useContext } from "react";
 import Button from "./UI/Button";
-import { TodoContext } from "../store/TodoContext";
+import { useSelector, useDispatch } from "react-redux";
+import { todoActions } from "../store/todo-slice";
 
 const Footer = () => {
-  const { todos, clearTodo } = useContext(TodoContext);
+  const todos = useSelector((state) => state.todos);
+  const dispatch = useDispatch();
 
   const lengthOfList = todos.length;
 
   const clearHandler = () => {
-    clearTodo();
+    dispatch(todoActions.clear());
   };
   return (
     <div className={"footer-container"}>
-      <p>You have {lengthOfList} pending tasks</p>
-      {lengthOfList > 0 && (
-        <Button style={{ fontSize: "1.3rem" }} onClick={clearHandler}>
-          Clear All
-        </Button>
-      )}
+      <footer>
+        <p>
+          You have <span>{lengthOfList}</span> pending tasks
+        </p>
+        {lengthOfList > 0 && (
+          <Button className="footer__btn" onClick={clearHandler}>
+            Clear All
+          </Button>
+        )}
+      </footer>
     </div>
   );
 };

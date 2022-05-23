@@ -1,16 +1,21 @@
-import React, { useContext } from "react";
+import React from "react";
 import Button from "../components/UI/Button";
-import { TodoContext } from "../store/TodoContext";
+import { useDispatch } from "react-redux";
+import { todoActions } from "./../store/todo-slice";
+
+import { FcTodoList } from "react-icons/fc";
 
 const TodoLists = ({ todo }) => {
-  const { removeTodo } = useContext(TodoContext);
+  const dispatch = useDispatch();
 
   const deleteHandler = () => {
-    removeTodo(todo.id);
+    dispatch(todoActions.delete(todo.id));
   };
   return (
     <div className={"li-container"}>
-      <li>{todo.todo}</li>
+      <li>
+        <FcTodoList size={30} color="purple" /> <p>{todo.todo}</p>
+      </li>
       <Button onClick={deleteHandler}>x</Button>
     </div>
   );

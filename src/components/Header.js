@@ -3,7 +3,7 @@ import React from "react";
 const Header = () => {
   return (
     <>
-      <h1 className="header">Todo App</h1>
+      <h1 className="header">Never Forget Your Tasks</h1>
     </>
   );
 };
